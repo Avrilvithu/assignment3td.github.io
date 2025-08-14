@@ -1,0 +1,63 @@
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  }
+  #project {
+    padding: 0 1vw;
+  }
+  #avatar {
+    display: none;
+  }
+  #nav-title {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  #target {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .main-navigation {
+    height: 6rem;
+    gap: 2rem;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .nav-elements {
+    font-size: 1.4rem;
+    padding: 1.4rem 1.4rem;
+  }
+  .background-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    max-width: 100vw;
+    align-items: flex-start;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    gap: 2.5rem;
+  }
+  .background-grid .section {
+    display: block;
+    height: auto;
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+  .certification-grid {
+    padding: 5rem 10vw 2rem 10vw;
+  }
+  .certification-grid .certificate-image {
+    max-height: 15rem;
+    object-fit: contain;
+    margin: 0 0 1rem 0;
+  }
+  .project-smart-info {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  .project-smart-info .project-smart-info-stack {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
