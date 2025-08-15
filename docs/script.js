@@ -1,42 +1,35 @@
 // Wait until the DOM is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", () => {
-  // Get the form element that contains the email input (id="info-email-form")
+  // ----- EMAIL VERIFICATION SECTION -----
+  // Fetch relevant elements from the DOM
   const form = document.getElementById("info-email-form");
-
-  // Get the email input element whose value we'll validate (id="verify-email")
   const emailInput = document.getElementById("verify-email");
-
-  // Get the element used to display an error message on invalid email (id="email-error")
   const errorMsg = document.getElementById("email-error");
-
-  // Get the wrapper that holds the post-validation content to reveal (class=".info-content-wrapper")
   const infoContent = document.querySelector(".info-content-wrapper");
 
-  // Email regex used to test the user-entered address
+  // Regular expression to validate email format
   const emailRegex =
     /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  // Attach a submit handler to the form to validate the email and toggle UI
+  // This function will run when the submit button is clicked
   form.addEventListener("submit", (e) => {
-    // Prevent the browser from performing the default form submission/navigation
+    // Prevent the browser from reloading the page when the form is submitted
     e.preventDefault();
 
-    // Read the current value of the email input and remove surrounding whitespace
+    // Read the current value of the email input and remove surrounding spaces
     const value = emailInput.value.trim();
 
-    // If the email doesn't match the regex, show the error element and stop further processing
+    // If the email doesn't match the regex, show the error element and stop the code from running further
     if (!emailRegex.test(value)) {
-      errorMsg.style.display = "block"; // make the error message visible
-      return; // exit the handler without revealing info
+      errorMsg.style.display = "block";
+      return;
     }
 
-    // If we reached here, the email is valid: hide the error message element
+    // The email is valid. Hide the error message element and the email form
     errorMsg.style.display = "none";
-
-    // Hide the email form by adding the class that your CSS uses to hide it
     form.classList.add("info-content-hidden");
 
-    // Reveal the info content by removing the class that hides it
+    // Show the info content
     infoContent.classList.remove("info-content-hidden");
   });
 
